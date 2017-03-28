@@ -1,0 +1,419 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+\definecolor{magentavhir}{rgb}{0.9,0.1,0.8}
+\usecolortheme[named=magentavhir]{structure}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{ amssymb }
+\usepackage{ textcomp }
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{hyperref}
+\usepackage{color}
+\newcommand{\shellcmd}[1]{{\color{blue}\indent\indent\texttt{\footnotesize\ #1}\\}}
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+% The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Git-Github]{Git - Github}
+
+\author[Miriam Mota ]{\includegraphics[height=1cm,width=4cm]{images/UEBblanc.jpg} \\ Miriam Mota} % Your name
+\institute%[UEB - VHIR] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Statistics and Bioinformatics Unit (UEB),\\ 
+Vall d'Hebron Research Institute (VHIR) \\ % Your institution for the title page
+\medskip
+ % Your email address
+\textit{miriam.mota@vhir.org}
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Resumen} % Table of contents slide, comment this block out to remove it
+\small{\tableofcontents} % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Introducci\'o}
+
+
+%------------------------------------------------
+\begin{frame}
+	\frametitle{Git-Github}
+	\begin{itemize}
+		\item \textbf{Git} : Eina de control de versions.
+		\item \textbf{GitHub.com} : p\`{a}gina web que es conecta als repositoris per a tenir-los en l\'inea i interactuar amb ells.
+		\item \textbf{GitHub Desktop} : aplicaci\'o que es pot instal.lar en Windows per ajudar a sincronitzar el codi local amb GitHub.com.
+	\end{itemize}
+\end{frame}
+%------------------------------------------------
+
+%------------------------------------------------
+\begin{frame}
+	\frametitle{Definicions}
+	\begin{itemize}
+		\item \textbf{Repositori $\Longleftrightarrow$ Projecte}. On tindrem...
+		\begin{itemize}
+			\item Carpetes, arxius, dades, etc.
+			\item README: Descripció del projecte
+		\end{itemize}
+		\item \textbf{Branques}: Ens perment treballar en diferents versions d'un repositori alhora
+		\item \textbf{Organitzacions de treball}
+	\end{itemize}
+\end{frame}
+%------------------------------------------------
+
+
+\section{Instal.laci\'o}
+\subsection{Compte Github} 
+%------------------------------------------------
+\begin{frame}
+\frametitle{Creem nou compte}
+\url{https://github.com} \hspace{1cm} 
+	\begin{figure}
+		\includegraphics[width=0.62\linewidth]{images/Selection_187.png}
+	\end{figure}
+\end{frame}
+%------------------------------------------------
+
+
+%------------------------------------------------
+\begin{frame}
+	\frametitle{Compte UEB}
+	\url{https://github.com/uebvhir}
+	\begin{figure}
+		\includegraphics[width=0.77\linewidth]{images/Selection_188.png}
+	\end{figure}
+\end{frame}
+%------------------------------------------------
+
+
+
+%------------------------------------------------
+\begin{frame}
+	\frametitle{Creem repositori}
+	\begin{figure}
+		\includegraphics[width=1\linewidth]{images/Selection_189.png}
+	\end{figure}
+\end{frame}
+%------------------------------------------------
+
+
+
+
+%------------------------------------------------
+
+\subsection{Intalaci\'o Git}
+\begin{frame}
+	
+		\begin{block}{Linux}
+			\begin{itemize}
+				\item \textbf{Software necessari:} \\
+				\shellcmd{sudo apt-get update}
+				\shellcmd{sudo apt-get install git} \vspace{0.2cm}
+				\item \textbf{Software opcional:} \\
+				\shellcmd{sudo add-apt-repository ppa:rabbitvcs/ppa}
+				\shellcmd{sudo apt-get install rabbitvcs-cli rabbitvcs-core rabbitvcs-gedit rabbitvcs-nautilus3}
+			\end{itemize}
+			
+		\end{block}
+		
+		
+
+		\begin{block}{Windows}
+			\begin{itemize}
+				\item \textbf{Necessari}: Instalem Git (\url{https://git-for-windows.github.io/})
+				\item \textbf{Opcional:}  Instalem Github \url {https://desktop.github.com/})
+			\end{itemize}
+			{\small Obrim Git CMD}
+		\end{block}
+
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Configuraci\'o Git}
+	
+	\begin{itemize}
+		\item Configurar nom i correu\\
+		\shellcmd{git config --global user.name ``Nom''}
+		\shellcmd{git config --global user.email ``Correu''}
+		\item Comprovem dades\\ 
+		\shellcmd{git config --list}
+		
+	\end{itemize}
+	
+	
+
+\end{frame}
+
+
+\section{Exemple}
+%------------------------------------------------
+\subsection{Repositori Github - Local}
+\begin{frame}
+	\frametitle{Clonem repositori a l'ordinador}
+	\begin{itemize}
+		\item Ens posem al directori on volem que es cloni el repositori
+		\item Clonem\\
+		\shellcmd{git clone https://github.com/uebvhir/exempleSeminari.git}
+		\shellcmd{cd exempleSeminari}\vspace{0.2cm}
+		\item Podem afegir arxius des de: 
+		\begin{enumerate}
+			\item Local
+			\item Github
+		\end{enumerate}
+	\end{itemize}	
+\end{frame}
+
+\subsection{Afegir arxius}
+%------------------------------------------------
+%\subsection{Afegir arxius en local}
+\begin{frame}
+	\frametitle{Nous arxius local}
+	\begin{itemize}
+		\item Creem o copiem arxius a la carpeta exempleSeminari
+		\item Actualitzem canvis fets en local a github\\
+		\shellcmd{git add . (afegeix tots els arxius nous)\\
+			\hspace{1.5cm}-u (fitxers que han canviat de nom o eliminats)\\
+			\hspace{1.5cm}-A (fa totes dues coses)}
+		\shellcmd{git commit -m "missatge de canvis"}
+		\shellcmd{git push -u origin master}
+
+	\end{itemize}	
+\end{frame}
+
+
+%------------------------------------------------
+%\subsection{Afegir arxius al github}
+\begin{frame}
+	\frametitle{Nous arxius github}
+	\begin{itemize}
+		\item Creem o copiem arxius a la carpeta exempleSeminari des de github
+		\item Actualitzem canvis fets a github en local\\
+		\shellcmd{git add -A }
+		\shellcmd{git commit -m "missatge de canvis"}
+		\shellcmd{git pull --rebase origin master}
+		
+	\end{itemize}	
+\end{frame}
+
+
+%------------------------------------------------
+%\subsection{Nou repositori local}
+\begin{frame}
+	\frametitle{Repositori local - github}
+	\begin{itemize}
+		\item Creem repositori local \\
+		\shellcmd{mkdir nomRepo}
+		\shellcmd{cd nomRepo}
+		\shellcmd{git init}
+		\shellcmd{git remote add origin https://github.com/UsuariGithub/nomRepo.git}
+		\item Afegim arxius
+		\item Creem repositori amb el mateix nom que el local
+		\item Sincronitzem
+		
+		\shellcmd{git add -A}
+		\shellcmd{git commit -m "nou repositori afegit"}
+		\shellcmd{git push -u origin master}
+		
+		
+	\end{itemize}	
+\end{frame}
+
+
+%------------------------------------------------
+\subsection{Branques}
+\begin{frame}
+	\frametitle{Branques}
+	\begin{itemize}
+		\item Afegir branca \shellcmd{ git checkout -b brancaMiriam}
+		\item ELIMINAR branca  \shellcmd{ git branch -d brancaMiriam}
+		\item Veure en quina branca estem  \shellcmd{ git branch}
+		\item Actualitzar branca al github \shellcmd{ git push origin brancaMiriam}
+		\item Canviar de branca \shellcmd{git checkout master}
+	\end{itemize}
+		\begin{figure}
+			\includegraphics[width=0.6\linewidth]{images/Selection_194.png}
+		\end{figure}
+\end{frame}
+
+%------------------------------------------------
+\subsection{Organitzaci\'o}
+\begin{frame}
+	\frametitle{Organitzacions}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		
+		\column{.15\textwidth} % Left column and width
+			\begin{figure}
+				\includegraphics[width=1\linewidth]{images/Selection_192.png}
+			\end{figure}
+		
+		
+		\column{.85\textwidth} % Right column and width
+			\begin{figure}
+				\includegraphics[width=1.2\linewidth]{images/Selection_193.png}
+			\end{figure}
+	
+	\end{columns}
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Altres comandes}
+	\begin{itemize}
+		\item Colors especials per a la consola \shellcmd{git config color.ui true}
+		\item Agregar arxius de forma interactiva  \shellcmd{git add -i}
+		\item Canvis des de l'\'ultim commit \shellcmd{git status}
+		\item Fixar proxy \shellcmd{git config --global http.proxy http://conf\_www.ir.vhebron.net:8081}
+		\item Desfer un git init \shellcmd{rm -rf .git}
+		\item Veure canvis en els diferents commits \shellcmd{git diff origin/master}
+	\end{itemize}
+\end{frame}
+
+\section{Bibliograf\'ia}
+\begin{frame}
+	\begin{itemize}
+		\item \textbf{Rstudio - Git - Github:} \url{http://www.r-bloggers.com/rstudio-and-github/}
+		\item \textbf{Tutorial online: } \url{https://try.github.io/levels/1/challenges/1}
+		\item \textbf{Pro Git:} \url{https://git-scm.com/book/es/v1}
+	\end{itemize}
+\end{frame}
+
+
+
+
+
+
+%------------------------------------------------
+%\section{Bibliograf\'ia}
+%------------------------------------------------
+
+%\subsection{Bibliography}
+
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Referencias}
+
+%\tiny{
+%\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+
+%\bibitem M Slawski, M Daumer and A-L Boulesteix (2008) 
+%CMA – a comprehensive Bioconductor package for supervised classification with high dimensional data {\it BMC Bioinformatics} 9:439. 
+
+
+%\end{thebibliography}
+%}
+
+%\end{frame}
+
+
+%------------------------------------------------
+
+
+%------------------------------------------------
+
+
+
+%------------------------------------------------
+
+%\begin{frame}
+%\titlepage % Print the title page also as the last slide
+%\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 

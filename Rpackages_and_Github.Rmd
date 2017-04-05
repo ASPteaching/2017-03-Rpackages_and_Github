@@ -1,13 +1,13 @@
 ---
-title: "Treballant menys i millor amb R"
+title: "Creació de paquets amb R <br> & Utilització de Git/GitHub"
 author: "Alex Sanchez (asanchez@ub.edu)"
 date: "July 2016-March 2017"
-output: slidy_presentation
+output:
+  slidy_presentation: default
+keep_md: yes
+footer: Paquets i Distribució del Codi
 css: my.css
-footer: "Paquets i Distribució del Codi"
-keep_md: true
 ---
-
 
 # De què va tot això?
 
@@ -22,7 +22,7 @@ keep_md: true
     + robust, 
     + extensible, 
     + reproduïble
-- Bàsicament per __estalviar-nos temps__
+- Bàsicament per __fer programes millors__ i __estalviar-nos temps__
 
 # Perque treballar amb Sistemes de Control de Versions?
 
@@ -30,9 +30,7 @@ keep_md: true
 - Per compartir la meva feina, amb els demés però _també amb mi_ que puc accedir sempre al darrer que he fet desde qualsevol equip.
 - Per disfrutar de l'ajuda que em dóna el feed-back d'una, dues, o potser milers de persones.
 
-# Què ens cal?
-
-## Per fer paquets
+# Què ens cal per fer paquets?
 
 - Ens caldran alguns paquets.
 
@@ -50,14 +48,13 @@ if (! (require (knitr))) install.packages("knitr")
 
 ---
 
-## Per compartir-los amb Git/Github
+# Què ens cal per compartir-los per Git/Github?
 
 - Caldrà que ens creem un compte a `GitHub` (la web des d'on compartirem el codi).
 
 - Caldrà que instalem el programa `git` al nostre ordinador
 
   + [Instruccions per fer-ho](http://r-pkgs.had.co.nz/git.html)
-
 
 ---
 
@@ -72,11 +69,13 @@ if (! (require (knitr))) install.packages("knitr")
     + [Writing an R package from scratch](https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/)
     + [Write an R Package from Scratch with Github](http://www.r-bloggers.com/write-an-r-package-from-scratch-with-github/)
     + Veieu: 
-        - [El seu curs](http://courses.had.co.nz/12-devtools/).
         - [El seu llibre](http://r-pkgs.had.co.nz/)
+        
+        - [El seu curs](http://courses.had.co.nz/12-devtools/)
 ---
 
 # Pensem què volem fer
+
 - En aquesta sessió treballarem _per l'exemple_:
     + Escolliu una funció senzilla amb la que voleu fer un paquet
     + Penseu un bon nom per al vostre paquet
@@ -90,7 +89,7 @@ if (! (require (knitr))) install.packages("knitr")
 # Una funció d'exemple
 
 ```{r}
-# source("https://raw.githubusercontent.com/alexsanchezpla/scripts/master/usefulFunctions/boxplotWithDots.R")
+# source("https://raw.githubusercontent.com/alexsanchezpla/usefulFunctions/master/boxplotWithDots.R")
 boxplotWithDots<- function (myExpres, lev, aTitle, groupLabels, addBoxplot=TRUE, pchVal=16, colVal=rainbow(8))
 {
   beeswarm(myExpres~lev, 
@@ -107,7 +106,7 @@ boxplotWithDots<- function (myExpres, lev, aTitle, groupLabels, addBoxplot=TRUE,
 
 # Exemple d'ús
 
-```{r}
+```{r, message=FALSE}
 require(beeswarm)
 expres <-c(rnorm(10,5,2), rnorm(10,10,2))
 trat <- as.factor(c(rep("CT",10), rep("TR",10)))
@@ -116,19 +115,37 @@ groupLab<- c("Control", "Treatment")
 boxplotWithDots(myExpres=expres, lev=trat, aTitle=titol, groupLabels=groupLab)
 ```
 ---
+# Etapes en la creació d'un paquet
 
-# Creació de l'esquelet d'un paquet
+Tot i que l'ordre es pot modificar una forma de crear paquets *fent servir les eines de Hadley Wickam* pot ser la següent:
 
-- Des de la consola:
+- Accions obligades
 
-```{r eval=FALSE}
+1. Creació de l'esquelet del paquet.
+2. Creació de les funcions i documentació d'aquestes amb `Roxygen`
+3. Actualització de la informació dels arxius DESCRIPTION i NAMESPACE
+4. Creació del paquet ("compilació")
+
+- Accions opcionals
+
+1'. [Abans del punt 4] Creació i dipòsit de les dades d'exemple*
+2'. [Després del punt 4] Dipòsit ("upload") del paquet a github per fer-lo accessible als potencials usuaris
+3'. [Després del punt 4] Instal·lació del paquet des-de els arxius locals o des de `github`.
+
+---
+
+# 1. Creació de l'esquelet del paquet
+
+- Des de la consola farem:
+
+```{r, eval=FALSE}
 setwd("~/OnVolguemCrearElPaquet")
 if(!require(devtools)) install.packages("devtools")
 require(devtools)
 create("boxPlotDotted")
 ```
 
-- Amb Rstudio
+- Amb Rstudio farem:
     + Obrim RStudio
     + Creem un nou projecte: `File -> New Project`
     + Escollim `New Directory`
@@ -138,30 +155,30 @@ create("boxPlotDotted")
     
 ---
 
-# Resultat: L'esquelet del paquet
+# 1.2 Resultat: L'esquelet del paquet
 
 ![Aspecte del directori creat](images/newPackageFolder.png)
 
-- Revisem què és cada cosa
+---
 
-# Afegim la documentació
+# 2. Afegim la documentació
 
 - Tradicionalment era un "rotllo", lent de fer, i fàcil de cometre errors.
 - El paquet `roxygen2` ho ha fet patèticament senzill.
-- Bàsicament l'ajuda consisteix en posar uns comentaris a l'encapçalament del paquet
+- Bàsicament l'ajuda consisteix en posar uns comentaris a l'encapçalament del paquet.
 - Els comentaris poden començar per:
     - @param
     - @keywords
     - @seealso
     - @export
     - @examples
-- El que els fa atractiu aquest sistema es que és __gairebé el mateix que faríem sense fer el paquet__
+- El que els fa atractiu aquest sistema es que és __gairebé el mateix que faríem si no vulguessim fer un paquet__ però sí documentar el que fem.
  
 ---   
 
-## L'arxiu documentat
+## 2.1 Aspecte de l'arxiu documentat
 
-```{r eval=FALSE}
+```{r, eval=FALSE}
 #' boxplotWithDots
 #'#' This function allows plotting a dotplot and eventually overplotting a boxplot on it
 #'#' @param myExpres Numeric values
@@ -189,7 +206,7 @@ boxplotWithDots<- function (myExpres, lev, aTitle, groupLabels, addBoxplot=TRUE)
 }
 ```
 
-# Processem la documentació
+# 2.2 Processem la documentació
 
 - Per crear la documentació en format "estàndar" l'única cosa que ens cal ara es fer:
 ```{r eval=FALSE}
@@ -197,13 +214,15 @@ setwd("boxPlotDotted")
 require(devtools)
 document()
 ```
-- Mirem al directori 'man' que s'hi ha posat
+- Al directori `man` hi hauria d'haver aparegut un arxiu d'ajuda: `boxPlotDotted.Rda`.
 
-# Revisem l'arxiu DESCRIPTION
+---
 
-- Conté informació bàsica bastant intuïtiva
+# 3.1 Revisió de l'arxiu DESCRIPTION
 
-```{r eval=FALSE}
+- L'arxiu DESCRIPTION conté informació sobre diversos aspectes del paquet, la majoria bastant intuïtiva
+
+```{r, eval=FALSE}
 Package: boxPlotDotted
 Title: What the Package Does (one line, title case)
 Version: 0.0.0.9000
@@ -214,21 +233,24 @@ License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
-
 ```
+
+- Aquesta informació s'ha d'actualitzar
 
 ---
 
+# 3.2 Actualització de l'arxiu DESCRIPTION
+
 - La canviem per la informació del nostre paquet
 
-```{r eval=FALSE}
+```{r, eval=FALSE}
 Package: boxPlotDotted
 Type: Package
 Title: Diagrames de punts i de capsa
 Version: 0.1.1
 Author: Alex Sanchez
 Maintainer: Alex Sanchez <asanchez@ub.edu>
-Description: Aquest paquet ens servira per fer un boxplot, un dotchart o tots dos superposats (segons el nombre de punts podem decidir)
+Description: Aquest paquet ens servira per fer un diagrama de capsa, `boxplot`, un diagrama de punts, `dotchart, o tots dos superposats (segons el nombre de punts podem decidir).
 License: GPL 2
 LazyData: TRUE
 RoxygenNote: 6.0.1
@@ -236,21 +258,49 @@ RoxygenNote: 6.0.1
 
 Veieu [en aquest enllaç](http://r-pkgs.had.co.nz/description.html) mes informació sobre aquest arxiu i com modificar-lo.
 
-# I ja el podem instal·lar
+---
 
-- Ens col·loquem al directori d'on penja el directori del paquet
-```{r eval=FALSE}
+# 3.3 Revisió de l'arxiu NAMESPACE
+
+- Quan es carrega un paquet amb `library()` nomes es posen en memòria els objectes que han estat "exportats"
+
+- En aquest arxiu s'indica els objectes que es desitja exportar la qual cosa els farà directament visibles 
+
+    + Els objectes exportats han de tenir ajuda
+    + Els objectes no exportats no necessiten estar documentats
+    
+- Per exportar dos objectes a, b farem servir: `export (a, b)`
+
+- L'opció per defecte és exportar-ho tot amb aquesta instrucció:
+
+    + `exportPattern ("^ [^ \ \.]")`
+
+---
+
+# 4. Compilació i Instalació
+
+- Tradicionalment es fa per separat.
+
+- La instrucció `install` del paquet `devtools()` combina les dues
+
+Ens col·loquem al directori d'on penja el directori del paquet
+    
+```{r, eval=FALSE}
 setwd("..")
 ```
-- I executem la instrucció `install()`
-```{r eval=FALSE}
+
+I executem la instrucció `install()`
+    
+```{r, eval=FALSE}
 require(devtools)
 install("boxPlotDotted")
 ```
 
-# Provem el paquet
+--- 
 
-```{r eval=FALSE}
+# 4.2 Provem el paquet
+
+```{r, eval=FALSE}
 require(boxPlotDotted)
 expres <-c(rnorm(10,5,2), rnorm(10,10,2))
 trat <- as.factor(c(rep("CT",10), rep("TR",10)))
@@ -265,7 +315,7 @@ opt<- par(pch=2)
 - Escollim la funció amb la que treballarem.
     + Suposarem que es diu `unaFuncio` i està continguda en l'arxiu `unaFuncio.R`.
 - Repetim pas a pas el procés de creació del paquet a partir de la funció que hem aportat.
-```{r eval=FALSE}
+```{r, eval=FALSE}
 setwd("~/elMeuDirectoriDeTreball")
 require(devtools)
 create("unPaquet")
@@ -278,9 +328,9 @@ setwd("..")
 install("unPaquet")
 ```
 ---
+
 # Introducció als Sistemes de Contol de Versions
 
-## Manteniment i distribució de codi amb SCV
 
 SCV = "Sistemes de Control de Versions"
 

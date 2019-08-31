@@ -1,37 +1,37 @@
-title: "Creación de paquetes con R <br> & Utilización de Git / GitHub"
+title: "CreaciÃ³n de paquetes con R <br> & UtilizaciÃ³n de Git / GitHub"
 autor: "Alex Sanchez (asanchez@ub.edu)"
 date: "July 2016-March 2017"
 output:
-  slidy_presentation: default
+Â Â slidy_presentation: default
 keep_md: yes
-footer: Paquetes y Distribución del Código
+footer: Paquetes y DistribuciÃ³n del CÃ³digo
 css: my.css
 ---
 
-# ¿De qué va todo esto?
+# Â¿De quÃ© va todo esto?
 
 - En este taller discutiremos dos formas de trabajar mejor con R (o, al menos de hacer lo que muchos creemos que es mejor ...)
-    + Aprenderemos a __crear paquetes de R__ de forma sencilla y rápida
-    + Aprenderemos como __compartir el código__ mediante el sistema de control de versiones `Git` trabajando en el repositorio` Github`.
-- Y seremos más felices :-)
+Â Â Â Â + Aprenderemos a __crear paquetes de R__ de forma sencilla y rÃ¡pida
+Â Â Â Â + Aprenderemos como __compartir el cÃ³digo__ mediante el sistema de control de versiones `Git` trabajando en el repositorio` Github`.
+- Y seremos mÃ¡s felices :-)
 
 # Porque quisiera yo hacer paquetes?
 
-- Para tener un código más
-    + Robusto,
-    + Extensible,
-    + reproducible
-- Básicamente para __hacer programas mejores__ y __ahorrar tiempo__
+- Para tener un cÃ³digo mÃ¡s
+Â Â Â Â + Robusto,
+Â Â Â Â + Extensible,
+Â Â Â Â + reproducible
+- BÃ¡sicamente para __hacer programas mejores__ y __ahorrar tiempo__
 
 # Porque trabajar con Sistemas de Control de Versiones?
 
-- Para tener siempre la última versión
-- Para compartir mi trabajo, con los demás pero _también conmigo_ ya que puedo acceder siempre al último que he hecho desde cualquier equipo.
-- Para disfrutar de la ayuda que me da el feed-back de una, dos, o quizás miles de personas.
+- Para tener siempre la Ãºltima versiÃ³n
+- Para compartir mi trabajo, con los demÃ¡s pero _tambiÃ©n conmigo_ ya que puedo acceder siempre al Ãºltimo que he hecho desde cualquier equipo.
+- Para disfrutar de la ayuda que me da el feed-back de una, dos, o quizÃ¡s miles de personas.
 
-# ¿Qué necesitamos para hacer paquetes?
+# Â¿QuÃ© necesitamos para hacer paquetes?
 
-- Nos harán falta algunos paquetes.
+- Nos harÃ¡n falta algunos paquetes.
 
 ```{r eval = FALSE}
 if (! (require (DevTools))) install.packages ( "DevTools")
@@ -41,64 +41,63 @@ if (! (require (knitr))) install.packages ( "knitr")
 ```
 
 - Y algunas herramientas que se encuentran empaquetadas en `RTools`
-    + Para Windows las debe descargar [de aqui:] (https://cran.r-project.org/bin/windows/Rtools/)
-    + Para Mac debe tener `XCode` instalado
-    + En Linux además de R, es necesario haber instalado las herramientas de desarrollo de I
+Â Â Â Â + Para Windows las debe descargar [de aqui:] (https://cran.r-project.org/bin/windows/Rtools/)
+Â Â Â Â + Para Mac debe tener `XCode` instalado
+Â Â Â Â + En Linux ademÃ¡s de R, es necesario haber instalado las herramientas de desarrollo de I
 
 ---
 
-# ¿Qué necesitamos para compartirlos por Git / Github?
+# Â¿QuÃ© necesitamos para compartirlos por Git / Github?
 
-- Creareamos una cuenta en `GitHub` (la web desde donde compartiremos el código).
+- Creareamos una cuenta en `GitHub` (la web desde donde compartiremos el cÃ³digo).
 
 - Instalaremos el programa `git` en nuestro ordenador
 
-  + [Instrucciones para hacerlo] (http://r-pkgs.had.co.nz/git.html)
+Â Â + [Instrucciones para hacerlo] (http://r-pkgs.had.co.nz/git.html)
 
 ---
 
-## Una nota sobre el "cómo"
+## Una nota sobre el "cÃ³mo"
 
 - Hay varias formas de hacer paquetes.
-- Clásica: Google _ "How to create R packages" _
-    + Bottom-Up: Creando cada componente y enlazándolas
-    + Estilo de los manuales de CRAN o del seminario de John Fox
-- À la "Hadley-Wickam"
-    + Aprovechando herramientas de desarrollo contenidas en Rstudio
-    + [Writing an R package from scratch] (https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/)
-    + [Write an R Package from Scratch with Github] (http://www.r-bloggers.com/write-an-r-package-from-scratch-with-github/)
-    + Ver:
-        - [Su libro] (http://r-pkgs.had.co.nz/)
-        
-        - [Su curso] (http://courses.had.co.nz/12-devtools/)
+- ClÃ¡sica: Google _ "How to create R packages" _
+Â Â Â Â + Bottom-Up: Creando cada componente y enlazÃ¡ndolas
+Â Â Â Â + Estilo de los manuales de CRAN o del seminario de John Fox
+- Ã€ la "Hadley-Wickam"
+Â Â Â Â + Aprovechando herramientas de desarrollo contenidas en Rstudio
+Â Â Â Â + [Writing an R package from scratch] (https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/)
+Â Â Â Â + [Write an R Package from Scratch with Github] (http://www.r-bloggers.com/write-an-r-package-from-scratch-with-github/)
+Â Â Â Â + Ver:
+Â Â Â Â Â Â Â Â - [Su libro] (http://r-pkgs.had.co.nz/)
+Â Â Â Â Â Â Â Â 
+Â Â Â Â Â Â Â Â - [Su curso] (http://courses.had.co.nz/12-devtools/)
 ---
 
 # Pensamos que queremos hacer
 
-- En esta sesión trabajaremos _por ejemplo_:
-    + Haga función sencilla con la que desea hacer un paquete
-    + Considere un buen nombre para su paquete
+- En esta sesiÃ³n trabajaremos _por ejemplo_:
+Â Â Â Â + Haga funciÃ³n sencilla con la que desea hacer un paquete
+Â Â Â Â + Considere un buen nombre para su paquete
 
-- Un ejemplo naïve: `boxPlotWithDots` es una función que permite visualizar dos o más variables cuantitativas con puntos y / o boxplots.
+- Un ejemplo naÃ¯ve: `boxPlotWithDots` es una funciÃ³n que permite visualizar dos o mÃ¡s variables cuantitativas con puntos y / o boxplots.
 
-- Veremos cómo empaquetarla pero empezamos *obteniéndola de un repositorio de GitHub*:
+- Veremos cÃ³mo empaquetarla pero empezamos *obteniÃ©ndola de un repositorio de GitHub*:
 
 ---
 
-# Una función de ejemplo
+# Una funciÃ³n de ejemplo
 
 ```{r}
-# Source ( "https://raw.githubusercontent.com/alexsanchezpla/usefulFunctions/master/boxplotWithDots.R")
-boxplotWithDots <- function (myExpres, lev, aTitle, groupLabels, addBoxplot = TRUE, pchVal = 16, colVal = rainbow (8))
+# source ( "https://raw.githubusercontent.com/alexsanchezpla/usefulFunctions/master/boxplotWithDots.R")
+boxplotWithDots <- function (myExpres, lev, aTitle, groupLabels, addBoxplot=TRUE)
 {
-  beeswarm (myExpres ~ lev,
-           ylab = "Expression", xlab = "Groups",
-           main = aTitle,
-           labels = groupLabels,
-           PCH = pchVal, col = colVal)
-  if (addBoxplot)
-    boxplot (myExpres ~ lev, add = T, names = c ( "", ""), col = "# 0000ff22")
-  # Según un post de: https://www.r-statistics.com/2011/03/beeswarm-boxplot-and-plotting-it-with-r/
+  beeswarm(myExpres~lev, 
+           ylab="Expression", xlab="Groups",
+           main=aTitle,
+           labels=groupLabels)  
+  if(addBoxplot)
+    boxplot(myExpres~lev, add = T, names = c("",""), col="#0000ff22")
+  # Segons un post de: https://www.r-statistics.com/2011/03/beeswarm-boxplot-and-plotting-it-with-r/
 }
 ```
 ---
@@ -108,36 +107,36 @@ boxplotWithDots <- function (myExpres, lev, aTitle, groupLabels, addBoxplot = TR
 ```{r, message = FALSE}
 require (beeswarm)
 expres <-c (rnorm (10,5,2), rnorm (10,10,2))
-trado <- as.factor (c (recibe ( "CT", 10), recibe ( "TR", 10)))
+trado <- as.factor (c (rep ( "CT", 10), rep ( "TR", 10)))
 titulo <- "Treatment effect"
 groupLab <- c ( "Control", "Treatment")
 boxplotWithDots (myExpres = expres, lev = trado, aTitle = titulo, groupLabels = groupLab)
 ```
 ---
-# Etapas en la creación de un paquete
+# Etapas en la creaciÃ³n de un paquete
 
 Aunque el orden se puede modificar una forma de crear paquetes * utilizando las herramientas de Hadley Wickam * puede ser la siguiente:
 
 - Acciones obligadas
 
-1. Creación del esqueleto del paquete.
-2. Creación de las funciones y documentación de estas con `Roxygen`
-3. Actualización de la información de los archivos DESCRIPTION y NAMESPACE
-4. Creación del paquete ( "compilación")
+1. CreaciÃ³n del esqueleto del paquete.
+2. CreaciÃ³n de las funciones y documentaciÃ³n de estas con `Roxygen`
+3. ActualizaciÃ³n de la informaciÃ³n de los archivos DESCRIPTION y NAMESPACE
+4. CreaciÃ³n del paquete ( "compilaciÃ³n")
 
 - Acciones opcionales
 
-1 '. Creación de un manual mediante una "Vignette" [http://r-pkgs.had.co.nz/vignettes.html](http://r-pkgs.had.co.nz/vignettes.html)
+1 '. CreaciÃ³n de un manual mediante una "Vignette" [http://r-pkgs.had.co.nz/vignettes.html](http://r-pkgs.had.co.nz/vignettes.html)
 
-2 '. [Antes del punto 4] Creación y depósito de los datos de ejemplo *
+2 '. [Antes del punto 4] CreaciÃ³n y depÃ³sito de los datos de ejemplo *
 
-3 '. [Después del punto 4] Depósito ( "upload") del paquete a GitHub para hacerlo accesible a los potenciales usuarios
+3 '. [DespuÃ©s del punto 4] DepÃ³sito ( "upload") del paquete a GitHub para hacerlo accesible a los potenciales usuarios
 
-4 '. [Después del punto 4] Instalación del paquete des-de los archivos locales o desde `github`.
+4 '. [DespuÃ©s del punto 4] InstalaciÃ³n del paquete des-de los archivos locales o desde `github`.
 
 ---
 
-# 1. Creación del esqueleto del paquete
+# 1. CreaciÃ³n del esqueleto del paquete
 
 - Desde la consola haremos:
 
@@ -149,13 +148,13 @@ create ( "boxPlotDotted")
 ```
 
 - Con Rstudio haremos:
-    + Abrimos RStudio
-    + Creamos un nuevo proyecto: `File -> New Project`
-    + Escogemos `New Directory`
-    + Escogemos `R Package`
-    + Elegimos el directorio donde queremos que se cree el paquete
-    + Damos un nombre al paquete y hacemos clic en "Create Project"
-    
+Â Â Â Â + Abrimos RStudio
+Â Â Â Â + Creamos un nuevo proyecto: `File -> New Project`
+Â Â Â Â + Escogemos `New Directory`
+Â Â Â Â + Escogemos `R Package`
+Â Â Â Â + Elegimos el directorio donde queremos que se cree el paquete
+Â Â Â Â + Damos un nombre al paquete y hacemos clic en "Create Project"
+Â Â Â Â 
 ---
 
 # 1.2 Resultado: El esqueleto del paquete
@@ -164,19 +163,19 @@ create ( "boxPlotDotted")
 
 ---
 
-# 2. Añadimos la documentación
+# 2. AÃ±adimos la documentaciÃ³n
 
-- Tradicionalmente era un "rollo", lento de hacer, y era fácil  cometer errores.
-- El paquete `roxygen2` lo ha hecho patéticamente sencillo.
-- Básicamente la ayuda consiste en poner unos comentarios en el encabezamiento del paquete.
+- Tradicionalmente era un "rollo", lento de hacer, y era fÃ¡cil  cometer errores.
+- El paquete `roxygen2` lo ha hecho patÃ©ticamente sencillo.
+- BÃ¡sicamente la ayuda consiste en poner unos comentarios en el encabezamiento del paquete.
 - Los comentarios pueden empezar por:
-    - @param
-    - @keywords
-    - @seealso
-    - @export
-    - @examples
-- Lo que los hace atractivo este sistema es que es __son casi las mismas operaciones si no quisiéramos hacer un paquete__ pero sí documentar lo que hacemos.
- 
+Â Â Â Â - @param
+Â Â Â Â - @keywords
+Â Â Â Â - @seealso
+Â Â Â Â - @export
+Â Â Â Â - @examples
+- Lo que los hace atractivo este sistema es que es __son casi las mismas operaciones si no quisiÃ©ramos hacer un paquete__ pero sÃ­ documentar lo que hacemos.
+Â 
 ---
 
 ## 2.1 Aspecto del archivo documentado
@@ -199,31 +198,31 @@ create ( "boxPlotDotted")
 # 'BoxplotWithDots (myExpres = expres, lev = trado, aTitle = titulo, groupLabels = groupLab)
 # '@export
 boxplotWithDots <- function (myExpres, lev, aTitle, groupLabels, addBoxplot = TRUE) {
-  beeswarm (myExpres ~ lev,
-           ylab = "Expression", xlab = "Groups",
-           main = aTitle,
-           labels = groupLabels)
-  if (addBoxplot)
-    boxplot (myExpres ~ lev, add = T, names = c ( "", ""), col = "# 0000ff22")
-  # Según un post de: https://www.r-statistics.com/2011/03/beeswarm-boxplot-and-plotting-it-with-r/
+Â Â beeswarm (myExpres ~ lev,
+Â Â Â Â Â Â Â Â Â Â Â ylab = "Expression", xlab = "Groups",
+Â Â Â Â Â Â Â Â Â Â Â main = aTitle,
+Â Â Â Â Â Â Â Â Â Â Â labels = groupLabels)
+Â Â if (addBoxplot)
+Â Â Â Â boxplot (myExpres ~ lev, add = T, names = c ( "", ""), col = "# 0000ff22")
+Â Â # SegÃºn un post de: https://www.r-statistics.com/2011/03/beeswarm-boxplot-and-plotting-it-with-r/
 }
 ```
 
-# 2.2 Procesamos la documentación
+# 2.2 Procesamos la documentaciÃ³n
 
-- Para crear la documentación en formato "estándar" lo único que necesitamos ahora se hacer:
+- Para crear la documentaciÃ³n en formato "estÃ¡ndar" lo Ãºnico que necesitamos ahora se hacer:
 ```{r eval = FALSE}
 setwd ( "boxPlotDotted")
 require (DevTools)
 documento ()
 ```
-- En el directorio `man` debería haber aparecido un archivo de ayuda:` boxPlotDotted.Rda`.
+- En el directorio `man` deberÃ­a haber aparecido un archivo de ayuda:` boxPlotDotted.Rda`.
 
 ---
 
-# 3.1 Revisión del archivo DESCRIPTION
+# 3.1 RevisiÃ³n del archivo DESCRIPTION
 
-- El archivo DESCRIPTION contiene información sobre diversos aspectos del paquete, la mayoría bastante intuitiva
+- El archivo DESCRIPTION contiene informaciÃ³n sobre diversos aspectos del paquete, la mayorÃ­a bastante intuitiva
 
 ```{r, eval = FALSE}
 Package: boxPlotDotted
@@ -238,13 +237,13 @@ LazyData: true
 RoxygenNote: 6.0.1
 ```
 
-- Esta información se actualizará
+- Esta informaciÃ³n se actualizarÃ¡
 
 ---
 
-# 3.2 Actualización del archivo DESCRIPTION
+# 3.2 ActualizaciÃ³n del archivo DESCRIPTION
 
-- La cambiamos por la información de nuestro paquete
+- La cambiamos por la informaciÃ³n de nuestro paquete
 
 ```{r, eval = FALSE}
 Package: boxPlotDotted
@@ -253,47 +252,47 @@ Title: Diagramas de puntos y de caja
 Version: 0.1.1
 Author: Alex Sanchez
 Maintainer: Alex Sanchez <asanchez@ub.edu>
-Description: Este paquete nos servirá para hacer un diagrama de caja, `boxplot`, un diagrama de puntos,` dotchart, o ambos superpuestos (según el número de puntos podemos decidir).
+Description: Este paquete nos servirÃ¡ para hacer un diagrama de caja, `boxplot`, un diagrama de puntos,` dotchart, o ambos superpuestos (segÃºn el nÃºmero de puntos podemos decidir).
 License: GPL 2
 LazyData: TRUE
 RoxygenNote: 6.0.1
 ```
 
-Ver [en este enlace] (http://r-pkgs.had.co.nz/description.html) mas información sobre este archivo y cómo modificarlo.
+Ver [en este enlace] (http://r-pkgs.had.co.nz/description.html) mas informaciÃ³n sobre este archivo y cÃ³mo modificarlo.
 
 ---
 
-# 3.3 Revisión del archivo NAMESPACE
+# 3.3 RevisiÃ³n del archivo NAMESPACE
 
-- Cuando se carga un paquete con `library ()` sólo se ponen en memoria los objetos que han sido "exportados"
+- Cuando se carga un paquete con `library ()` sÃ³lo se ponen en memoria los objetos que han sido "exportados"
 
-- En este archivo se indica los objetos que se desea exportar lo que los hará directamente visibles
+- En este archivo se indica los objetos que se desea exportar lo que los harÃ¡ directamente visibles
 
-    + Los objetos exportados deben tener ayuda
-    + Los objetos no exportados no necesitan estar documentados
-    
+Â Â Â Â + Los objetos exportados deben tener ayuda
+Â Â Â Â + Los objetos no exportados no necesitan estar documentados
+Â Â Â Â 
 - Para exportar dos objetos a, b utilizaremos: `export (a, b)`
 
-- La opción por defecto es exportar todo con esta instrucción:
+- La opciÃ³n por defecto es exportar todo con esta instrucciÃ³n:
 
-    + `ExportPattern (" ^ [^ \ \.] ")`
+Â Â Â Â + `ExportPattern (" ^ [^ \ \.] ")`
 
 ---
 
-# 4. Compilación e Instalación
+# 4. CompilaciÃ³n e InstalaciÃ³n
 
 - Tradicionalmente se hace por separado.
 
-- La instrucción `install` del paquete` DevTools () `combina las dos
+- La instrucciÃ³n `install` del paquete` DevTools () `combina las dos
 
 Nos colocamos en el directorio de donde cuelga el directorio del paquete
-    
+Â Â Â Â 
 ```{r, eval = FALSE}
 setwd ( "..")
 ```
 
-Y ejecutamos la instrucción `install ()`
-    
+Y ejecutamos la instrucciÃ³n `install ()`
+Â Â Â Â 
 ```{r, eval = FALSE}
 require (DevTools)
 install ( "boxPlotDotted")
@@ -313,17 +312,17 @@ opt <- par (PCH = 2)
 # BoxplotWithDots (myExpres = expres, lev = trado, aTitle = titulo, groupLabels = groupLab)
 ```
 
-# _Y ahora un poco de pràctica_
+# _Y ahora un poco de prÃ ctica_
 
-- Elegimos la función con la que trabajar+ Supondremos que se llama `unaFuncio` y está contenida en el archivo` unaFuncio.R`.
-- Repetimos paso a paso el proceso de creación del paquete a partir de la función que hemos aportado.
+- Elegimos la funciÃ³n con la que trabajar+ Supondremos que se llama `unaFuncio` y estÃ¡ contenida en el archivo` unaFuncio.R`.
+- Repetimos paso a paso el proceso de creaciÃ³n del paquete a partir de la funciÃ³n que hemos aportado.
 ```{r, eval = FALSE}
 setwd ( "~ / elMeuDirectoriDeTreball")
 require (DevTools)
 create ( "unPaquet")
 setwd ( "unPaquet")
 # Copiamos el archivo `unaFuncio.R` el directorio R
-# Documentamos la función con el sistema de Roxygen
+# Documentamos la funciÃ³n con el sistema de Roxygen
 documento ()
 setwd ( "..")
 # La instalamos
@@ -331,7 +330,7 @@ install ( "unPaquet")
 ```
 ---
 
-# Introducción a los Sistemas de Contol de Versiones
+# IntroducciÃ³n a los Sistemas de Contol de Versiones
 
 
 SCV = "Sistemas de Control de Versiones"
@@ -342,44 +341,44 @@ SCV = "Sistemas de Control de Versiones"
 
 ---
 
-## ¿Qué son los SCV?
+## Â¿QuÃ© son los SCV?
 
-- Se llama __control de versiones__ a la gestión de los diversos cambios que se realizan sobre los elementos de algún producto o una configuración del mismo.
-- Una _versión_, revisión o edición de un producto, es el estado en que se encuentra el mismo en un momento dado de su desarrollo o modificación.
-- Los _Sistemas de control de versiones_ son __programas__ que facilitan la administración de las diferentes versiones de cada producto desarrollado.
-    + Un _producto_ puede ser un archivo, un paquete, un proyecto entero, ...
+- Se llama __control de versiones__ a la gestiÃ³n de los diversos cambios que se realizan sobre los elementos de algÃºn producto o una configuraciÃ³n del mismo.
+- Una _versiÃ³n_, revisiÃ³n o ediciÃ³n de un producto, es el estado en que se encuentra el mismo en un momento dado de su desarrollo o modificaciÃ³n.
+- Los _Sistemas de control de versiones_ son __programas__ que facilitan la administraciÃ³n de las diferentes versiones de cada producto desarrollado.
+Â Â Â Â + Un _producto_ puede ser un archivo, un paquete, un proyecto entero, ...
 
 ---
 
-## ¿Qué aportan los SCV?
+## Â¿QuÃ© aportan los SCV?
 
 - Un sistema de control de versiones debe proporcionar:
-    + Un _mecanismo de almacenaje_ los elementos que tenga que gestionar (p.ej. Archivos de texto, imágenes, documentación ...).
-    + La _posibilidad realizar cambios_ sobre los elementos almacenados (p, ej. Modificaciones parciales, añadir, borrar, renombrar o mover elementos).
-    + Un _Registre histórico_ de las acciones realizadas con cada elemento o conjunto de elementos (normalmente pudiendo volver o extraer un estado anterior del producto).
-- Un concepto importante es el de __repositorio__ que es como se denomina al _lugar donde se almacenan los datos actualizados e históricos de cambios_, a menudo en un servidor.
-    + Puede ser un sistema de archivos en un disco duro, un banco de datos, etc.
-    
+Â Â Â Â + Un _mecanismo de almacenaje_ los elementos que tenga que gestionar (p.ej. Archivos de texto, imÃ¡genes, documentaciÃ³n ...).
+Â Â Â Â + La _posibilidad realizar cambios_ sobre los elementos almacenados (p, ej. Modificaciones parciales, aÃ±adir, borrar, renombrar o mover elementos).
+Â Â Â Â + Un _Registre histÃ³rico_ de las acciones realizadas con cada elemento o conjunto de elementos (normalmente pudiendo volver o extraer un estado anterior del producto).
+- Un concepto importante es el de __repositorio__ que es como se denomina al _lugar donde se almacenan los datos actualizados e histÃ³ricos de cambios_, a menudo en un servidor.
+Â Â Â Â + Puede ser un sistema de archivos en un disco duro, un banco de datos, etc.
+Â Â Â Â 
 ---
 
 # Tipo de SCV
 
-- Podemos clasificar los sistemas de control de versiones atendiendo a la arquitectura utilizada para el almacenamiento del código
-    + __Centralitzados__: existe un repositorio centralizado de todo el código, del que es responsable un único usuario (o conjunto de ellos). Se facilitan las tareas administrativas a cambio de reducir flexibilidad, ya que todas las decisiones fuertes (como crear una nueva rama) necesitan la aprobación del responsable. Algunos ejemplos son __CVS__, __Subversion__ o __Team Foundation Server__.
-    + __Distribuïts__: cada usuario tiene su propio repositorio. Los diferentes ubicaciones pueden intercambiar y mezclar revisiones entre ellos. Es frecuente el uso de un repositorio, que está normalmente disponible, que sirve de punto de sincronización de los diferentes ubicaciones locales. Algunos ejemplos son __Bazaar__ o __Git__,
-    
+- Podemos clasificar los sistemas de control de versiones atendiendo a la arquitectura utilizada para el almacenamiento del cÃ³digo
+Â Â Â Â + __Centralitzados__: existe un repositorio centralizado de todo el cÃ³digo, del que es responsable un Ãºnico usuario (o conjunto de ellos). Se facilitan las tareas administrativas a cambio de reducir flexibilidad, ya que todas las decisiones fuertes (como crear una nueva rama) necesitan la aprobaciÃ³n del responsable. Algunos ejemplos son __CVS__, __Subversion__ o __Team Foundation Server__.
+Â Â Â Â + __DistribuÃ¯ts__: cada usuario tiene su propio repositorio. Los diferentes ubicaciones pueden intercambiar y mezclar revisiones entre ellos. Es frecuente el uso de un repositorio, que estÃ¡ normalmente disponible, que sirve de punto de sincronizaciÃ³n de los diferentes ubicaciones locales. Algunos ejemplos son __Bazaar__ o __Git__,
+Â Â Â Â 
 <Div align = "center">
 ! [] (Images / ccvs-dcvs.png)
 </ Div>
 
 ---
 
-# ¿Qué es `Github`?
+# Â¿QuÃ© es `Github`?
 
 - `GitHub` es un servicio de hosting de repositorios` Git`.
-- `GitHub` ofrece toda la funcionalidad de` Git` de control de revisión distribuido y administración de código de la fuente (SCM) añadiendo una serie de características propias.
-    + A diferencia de `Git`, que es estrictamente una herramienta de _línea de comandes_,` GitHub` proporciona una interfaz gráfica basada en web y escritorio así como integración del móvil.
-    + También proporciona control de acceso y varias características de colaboración como _`bug tracking`_, _administración de tasques_, y _wikis_ por cada proyecto.
+- `GitHub` ofrece toda la funcionalidad de` Git` de control de revisiÃ³n distribuido y administraciÃ³n de cÃ³digo de la fuente (SCM) aÃ±adiendo una serie de caracterÃ­sticas propias.
+Â Â Â Â + A diferencia de `Git`, que es estrictamente una herramienta de _lÃ­nea de comandes_,` GitHub` proporciona una interfaz grÃ¡fica basada en web y escritorio asÃ­ como integraciÃ³n del mÃ³vil.
+Â Â Â Â + TambiÃ©n proporciona control de acceso y varias caracterÃ­sticas de colaboraciÃ³n como _`bug tracking`_, _administraciÃ³n de tasques_, y _wikis_ por cada proyecto.
 
 <Div align = "center">
 ! [] (Images / gitAndGithub.jpg)
@@ -389,101 +388,101 @@ SCV = "Sistemas de Control de Versiones"
 
 # Para que suele utilizarse Git / Github?
 
-- Si se guarda el código en un repositorio
-    + Es más fácil controlar los cambios que se van introduciendo
-    + Es más sencillo acceder (uno mismo y otros) a la última versión.
-    + Es posible trabajar colaborativamente.
+- Si se guarda el cÃ³digo en un repositorio
+Â Â Â Â + Es mÃ¡s fÃ¡cil controlar los cambios que se van introduciendo
+Â Â Â Â + Es mÃ¡s sencillo acceder (uno mismo y otros) a la Ãºltima versiÃ³n.
+Â Â Â Â + Es posible trabajar colaborativamente.
 - Los desarrolladores de programas pueden ...
-    + Tener control de lo que van desarrollando.
-        - Versiones de desarrollo / Versiones estables
-    + Distribuir más fácilmente las versiones estables
-    + Recibir input de los usuarios de los programas
+Â Â Â Â + Tener control de lo que van desarrollando.
+Â Â Â Â Â Â Â Â - Versiones de desarrollo / Versiones estables
+Â Â Â Â + Distribuir mÃ¡s fÃ¡cilmente las versiones estables
+Â Â Â Â + Recibir input de los usuarios de los programas
 - Los usuarios de los programas pueden ...
-    + Acceder a la última versión de los programas que quieren utilizar.
-    + Dar feedback a los desarrolladores de los programas.
-    
+Â Â Â Â + Acceder a la Ãºltima versiÃ³n de los programas que quieren utilizar.
+Â Â Â Â + Dar feedback a los desarrolladores de los programas.
+Â Â Â Â 
 ---
 
-# Configuración inicial
+# ConfiguraciÃ³n inicial
 
-- Conviene diferenciar la configuración de `Git` de la de` Github`
-- `Git` es el programa que permite hacer el CV y ??se instalará
+- Conviene diferenciar la configuraciÃ³n de `Git` de la de` Github`
+- `Git` es el programa que permite hacer el CV y ??se instalarÃ¡
 - `Github` es el entorno web que adoptamos para hacerlo y hay que darse de alta.
-- Como probablemente utilizaremos Rstudio también el configuraremos
+- Como probablemente utilizaremos Rstudio tambiÃ©n el configuraremos
 
 Recordemos que:
 - Para * acceder * a un repositorio y descargar su material no hay nada especial.
-- Sí que hay si se quiere poner código (u otros materiales) bajo control de versiones.
+- SÃ­ que hay si se quiere poner cÃ³digo (u otros materiales) bajo control de versiones.
 
 ---
 
-# Creación de una cuenta en Github
+# CreaciÃ³n de una cuenta en Github
 
 - Ir a [https://github.com/](https://github.com/) y crear un usuario
-    + [Https://github.com/miriammota](https://github.com/miriammota)
-    + [Https://github.com/hadley](https://github.com/hadley)
-    + [Https://github.com/alexGRBio](https://github.com/alexGRBio)
-- Es gratuito si queremos emplear repositorios públicos
+Â Â Â Â + [Https://github.com/miriammota](https://github.com/miriammota)
+Â Â Â Â + [Https://github.com/hadley](https://github.com/hadley)
+Â Â Â Â + [Https://github.com/alexGRBio](https://github.com/alexGRBio)
+- Es gratuito si queremos emplear repositorios pÃºblicos
 - Podemos obtener espacio para repositorios privados
-    + A [Github] (https://github.com) con licencia acdèmica o pagando una cuota pequeña.
-    + Gratis a otros sitios como [Gitlab] (https://gitlab.com)
+Â Â Â Â + A [Github] (https://github.com) con licencia acdÃ¨mica o pagando una cuota pequeÃ±a.
+Â Â Â Â + Gratis a otros sitios como [Gitlab] (https://gitlab.com)
 - Podemos crear Organitzacons que agrupen usuarios
-    + [Https://github.com/GRBio](https://github.com/GRBio)
-    + [Https://github.com/uebueb](https://github.com/uebueb)
-   
+Â Â Â Â + [Https://github.com/GRBio](https://github.com/GRBio)
+Â Â Â Â + [Https://github.com/uebueb](https://github.com/uebueb)
+Â Â Â 
 ---
 
-# Instalación de Git
+# InstalaciÃ³n de Git
 
-- Podemos ver cómo instalar Git en el enlace:
+- Podemos ver cÃ³mo instalar Git en el enlace:
 [Http://r-pkgs.had.co.nz/git.html#git-init](http://r-pkgs.had.co.nz/git.html#git-init)
 
-- Básicamente hay que hacer:
-    + Descargar el programa
-    + Instalarlo
-    + Configurar el nombre de usuario: desde consola escribiremos:
-    
-      `Git config --global user.email alex @ grbio.eu`
-      
-      `Git config --global user.name alexGRBio`
+- BÃ¡sicamente hay que hacer:
+Â Â Â Â + Descargar el programa
+Â Â Â Â + Instalarlo
+Â Â Â Â + Configurar el nombre de usuario: desde consola escribiremos:
+Â Â Â Â 
+Â Â Â Â Â Â `Git config --global user.email alex @ grbio.eu`
+Â Â Â Â Â Â 
+Â Â Â Â Â Â `Git config --global user.name alexGRBio`
 
 ---
 
-# Configuración de Rstudio para trabajar con Git / Github
+# ConfiguraciÃ³n de Rstudio para trabajar con Git / Github
 
 [Http://www.r-bloggers.com/rstudio-and-github/](http://www.r-bloggers.com/rstudio-and-github/)
 
 - Desde _Tools -> Version Control_ selecionar _Git_
-- Desde _RStudio, Tools -> Global Options_, seleccionamos la pestaña _Git // SVN_
-    + Hay que asegurarse de que el _path_ hacia el ejecutable es correcto, especialmente en Windows donde es del tipo 'C: / Program Files (x86) / Git / bin / git.exe`.
+- Desde _RStudio, Tools -> Global Options_, seleccionamos la pestaÃ±a _Git // SVN_
+Â Â Â Â + Hay que asegurarse de que el _path_ hacia el ejecutable es correcto, especialmente en Windows donde es del tipo 'C: / Program Files (x86) / Git / bin / git.exe`.
 - Elegimos _Create RSA Key_
-- Cerramos la ventana, pulsamos _View público key_ y copiamos la clave pública que se nos muestra.
-- _ (Si aún no tuviéramos una cuenta de GitHub ahora es el momento de crearlo (_
-    - Abrimos _account settings_,
-    - pulsamos la pestaña de claves SSH
-    - Pulsamos _Add SSH key_
-    - Pegamos la clave pública que hemos creado desde Rstudio.
-- Debemos identificarnos a Git (que está a nuestro ordenador !, no es GitHub)
-    - A RStudio, pulsamos _Tools -> Shell_
-    - Se abre una consola donde escribiremos:
+- Cerramos la ventana, pulsamos _View pÃºblico key_ y copiamos la clave pÃºblica que se nos muestra.
+- _ (Si aÃºn no tuviÃ©ramos una cuenta de GitHub ahora es el momento de crearlo (_
+Â Â Â Â - Abrimos _account settings_,
+Â Â Â Â - pulsamos la pestaÃ±a de claves SSH
+Â Â Â Â - Pulsamos _Add SSH key_
+Â Â Â Â - Pegamos la clave pÃºblica que hemos creado desde Rstudio.
+- Debemos identificarnos a Git (que estÃ¡ a nuestro ordenador !, no es GitHub)
+Â Â Â Â - A RStudio, pulsamos _Tools -> Shell_
+Â Â Â Â - Se abre una consola donde escribiremos:
 
-      `Git config --global user.email alex @ grbio.eu`
-      
-      `Git config --global user.name alexGRBio`
+Â Â Â Â Â Â `Git config --global user.email alex @ grbio.eu`
+Â Â Â Â Â Â 
+Â Â Â Â Â Â `Git config --global user.name alexGRBio`
 
 ---
 
-# Caso 1: Creación de proyectos con control de versión
+# Caso 1: CreaciÃ³n de proyectos con control de versiÃ³n
 
-- Como antes escogemos _new project_ y después _new Directory_
+- Como antes escogemos _new project_ y despuÃ©s _new Directory_
 - Damos nombre al proyecto y marcamos: _Create a git repository_
-- Desde RStudio, creamos un nuevo script ( `test.R`) que añadiremos al repositorio
-    + Una vez grabado este nuevo script ( `test.R`), aparecerá en la pestaña Git tab del panel` Environment / history`.
-    + Seleccionar el (los) archivos que quieras añadir al repositorio y pulsa `Commit` entrando una breve descripción donde dice` Commit message`.
-        + Hemos enviado ( "Committed") la versión actual del archivo a tu repositorio local, tu ordenador o servidor.
-        + Ahora quisiéramos subir ( "push") el resultado del envío ( "commit") a GitHub, de forma que
-            + Tenemos una copia de seguridad
-            + Será accesible a los colaboradores
+- Desde RStudio, creamos un nuevo script ( `test.R`) que aÃ±adiremos al repositorio
+Â Â Â Â + Una vez grabado este nuevo script ( `test.R`), aparecerÃ¡ en la pestaÃ±a Git tab del panel` Environment / history`.
+Â Â Â Â + Seleccionar el (los) archivos que quieras aÃ±adir al repositorio y pulsa `Commit` entrando una breve descripciÃ³n donde dice` Commit message`.
+Â Â Â Â Â Â Â Â + Hemos enviado ( "Committed") la versiÃ³n actual del archivo a tu repositorio local, tu ordenador o servidor.
+Â Â Â Â Â Â Â Â + Ahora quisiÃ©ramos subir ( "push") el resultado del envÃ­o ( "commit") a GitHub, de forma que
+Â Â Â Â Â Â Â Â Â Â Â Â + Tenemos una copia de seguridad
+Â Â Â Â Â Â Â Â Â Â Â Â + SerÃ¡ accesible a los colaboradores
 
 ---
 
@@ -491,11 +490,11 @@ Recordemos que:
 
 - Si queremos convertir un repositorio local en un remoto debemos hacerlo mediante linea de comandos.
 - Una vez hecho esto  podremos "empujar" el repositorio en GitHub ...
-    + Sin haber creado un directorio remoto que se corresponda
-    + Habiendo creado previamente un directorio remoto con el que enlazar.
-- Una vez creado el directorio a GitHub podremos añadir archivos
+Â Â Â Â + Sin haber creado un directorio remoto que se corresponda
+Â Â Â Â + Habiendo creado previamente un directorio remoto con el que enlazar.
+- Una vez creado el directorio a GitHub podremos aÃ±adir archivos
 
-# 2.1 Creación del repositorio remoto
+# 2.1 CreaciÃ³n del repositorio remoto
 
 - Supongamos que tenemos un directorio local que queremos poner a Github
 - En primer lugar el convertiremos en repositorio y haremos un repositorio remoto a su imagen
@@ -510,13 +509,13 @@ git push -u origin master
 ```
 ---
 
-# 2.2 Añadiendo archivos del repositorio local al remoto
+# 2.2 AÃ±adiendo archivos del repositorio local al remoto
 
-- Con el repositorio remoto creado podemos añadir archivos
+- Con el repositorio remoto creado podemos aÃ±adir archivos
 
 ```{r eval = FALSE}
 git add -A
-git commit -m "Nos archivos añadidos"
+git commit -m "Nos archivos aÃ±adidos"
 git push -u origin master
 ```
 
@@ -524,20 +523,20 @@ git push -u origin master
 
 ---
 
-# Caso 3: Creación de un paquete bajo control de versiones
+# Caso 3: CreaciÃ³n de un paquete bajo control de versiones
 
-- Si el proceso que hemos seguido anteriormente para crear el paquete del hubiéramos hecho dentro de un proyecto de bajo control de versiones podríamos haberlo subido directamente a GitHub
-- Desde allí todo el que quiera se lo puede instalar o clonar.
+- Si el proceso que hemos seguido anteriormente para crear el paquete del hubiÃ©ramos hecho dentro de un proyecto de bajo control de versiones podrÃ­amos haberlo subido directamente a GitHub
+- Desde allÃ­ todo el que quiera se lo puede instalar o clonar.
 
 # Caso 3: Clonar un repositorio de Github
 
 - Si queremos descargarnos un repositorio podemos hacerlo
-    + A GitHub nos ponemos al repositorio
-    + Seleccionamos la opción `Clone / download '
-    + En nuestro ordenador nos ponemos en la carpeta donde queremos que se ponga el repositorio clonado
-    + Hacemos: `git clone nomRepositori`
-    
-- Podemos hacerlo también desde Rstudio
+Â Â Â Â + A GitHub nos ponemos al repositorio
+Â Â Â Â + Seleccionamos la opciÃ³n `Clone / download '
+Â Â Â Â + En nuestro ordenador nos ponemos en la carpeta donde queremos que se ponga el repositorio clonado
+Â Â Â Â + Hacemos: `git clone nomRepositori`
+Â Â Â Â 
+- Podemos hacerlo tambiÃ©n desde Rstudio
 
 # Referencias y enlaces
 

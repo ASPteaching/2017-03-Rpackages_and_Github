@@ -9,10 +9,8 @@ css: my.css
 # Introducción a los Sistemas de Contol de Versiones
 
 
-SCV = "Sistemas de Control de Versiones"
-
 <div align="center">
-![](images/whyWeNeedCVS.png)
+![SCV = "Sistemas de Control de Versiones"](images/whyWeNeedCVS.png)
 </div>
 
 ---
@@ -219,15 +217,17 @@ git push -u origin master
 - Si el proceso que hemos seguido anteriormente para crear el paquete del hubiéramos hecho dentro de un proyecto de bajo control de versiones podríamos haberlo subido directamente a GitHub
 - Desde allí todo el que quiera se lo puede instalar o clonar.
 
-# Caso 3: Clonar un repositorio de github
+# Caso 4: Clonar un repositorio de github
 
 - Si queremos descargarnos un repositorio podemos hacerlo
     + Vamos a GitHub y nos situamos en el repositorio
-    + Seleccionamos la opción `Clone/download '
-    + En nuestro ordenador nos ponemos en la carpeta donde queremos que se ponga el repositorio clonado
-    + Hacemos: `git clone nomRepositori`
-    
+    + Seleccionamos la opción `Clone/download', Esto copiará la dirección del repositorio en la memoria.
+- Para clonarlo desde la consola:
+    + En nuestro ordenador nos situamos en el directorio donde se desa situar el repositorio clonado
+    + Tecleamos: `git clone nomRepositori`
 - Podemos hacerlo también desde Rstudio
+    + Seleccionar __File / New Project... / Version Control / Git__
+    + Donde se indica "Repository URL" pegar la URL del repositorio
 
 # Referencias y enlaces
 

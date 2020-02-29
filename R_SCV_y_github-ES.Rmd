@@ -41,8 +41,12 @@ SCV = "Sistemas de Control de Versiones"
 # Tipo de SCV
 
 - Podemos clasificar los sistemas de control de versiones atendiendo a la arquitectura utilizada para el almacenamiento del código
-    + __Centralitzados__: existe un repositorio centralizado de todo el código, del que es responsable un único usuario (o conjunto de ellos). Se facilitan las tareas administrativas a cambio de reducir flexibilidad, ya que todas las decisiones fuertes (como crear una nueva rama) necesitan la aprobación del responsable. Algunos ejemplos son __CVS__, __Subversion__ o __Team Foundation Server__.
-    + __Distribudos__: cada usuario tiene su propio repositorio. Los diferentes ubicaciones pueden intercambiar y mezclar revisiones entre ellos. Es frecuente el uso de un repositorio, que está normalmente disponible, que sirve de punto de sincronización de los diferentes ubicaciones locales. Algunos ejemplos son __Bazaar__ o __Git__,
+    + __Centralizados__: existe un repositorio centralizado de todo el código, del que es responsable un único usuario (o conjunto de ellos). Se facilitan las tareas administrativas a cambio de reducir flexibilidad, ya que todas las decisiones fuertes (como crear una nueva rama) necesitan la aprobación del responsable. Algunos ejemplos son __CVS__, __Subversion__ o __Team Foundation Server__.
+    + __Distribuidos__: cada usuario tiene su propio repositorio. Los diferentes ubicaciones pueden intercambiar y mezclar revisiones entre ellos. Es frecuente el uso de un repositorio, que está normalmente disponible, que sirve de punto de sincronización de los diferentes ubicaciones locales. Algunos ejemplos son __Bazaar__ o __Git__,
+
+---
+
+# SCV centralizados o distribuidos
 
 <div align = "center">
 ![](images/ccvs-dcvs.png)
@@ -50,11 +54,11 @@ SCV = "Sistemas de Control de Versiones"
 
 ---
 
-# ¿Qué es `Github`?
+# ¿Qué es `github`?
 
-- `GitHub` es un servicio de hosting de repositorios` Git`.
-- `GitHub` ofrece toda la funcionalidad de` Git` de control de revisión distribuido y administración de código de la fuente (SCM) añadiendo una serie de características propias.
-- A diferencia de `Git`, que es estrictamente una herramienta de _línea de comandes_,` GitHub` proporciona una interfaz gráfica basada en web y escritorio así como integración del móvil.
+- `GitHub` es un servicio de alojamiento de repositorios` git`.
+- `GitHub` ofrece toda la funcionalidad de` git` de control de revisión distribuido y administración de código de la fuente (SCM) añadiendo una serie de características propias.
+- A diferencia de `git`, que es estrictamente una herramienta de _línea de comandos_, ` GitHub` proporciona una interfaz gráfica basada en web y escritorio así como integración del móvil.
 - También proporciona control de acceso y varias características de colaboración como _`bug tracking`_, _administración de tasques_, y _wikis_ por cada proyecto.
 
 <Div align = "center">
@@ -63,89 +67,100 @@ SCV = "Sistemas de Control de Versiones"
 
 ---
 
-# Para que suele utilizarse Git / Github?
+# Para que suele utilizarse git / github?
 
 - Si se guarda el código en un repositorio
-    + Es más fácil controlar los cambios que se van introduciendo
-    + Es más sencillo acceder (uno mismo y otros) a la última versión.
-    + Es posible trabajar colaborativamente.
+    + Es más fácil controlar los cambios que se van introduciendo
+    + Es más sencillo acceder (uno mismo y otros) a la última versión.
+    + Es posible trabajar colaborativamente.
 - Los desarrolladores de programas pueden ...
-    + Tener control de lo que van desarrollando.
-        - Versiones de desarrollo / Versiones estables
-    + Distribuir más fácilmente las versiones estables
-    + Recibir input de los usuarios de los programas
+    + Tener control de lo que van desarrollando.
+- Versiones de desarrollo / Versiones estables
+    +  Distribuir más fácilmente las versiones estables
+    + Recibir input de los usuarios de los programas
 - Los usuarios de los programas pueden ...
-    + Acceder a la última versión de los programas que quieren utilizar.
-    + Dar feedback a los desarrolladores de los programas.
-    
+    + Acceder a la última versión de los programas que quieren utilizar.
+    + Dar feedback a los desarrolladores de los programas.
+
 ---
 
 # Configuración inicial
 
-- Conviene diferenciar la configuración de `Git` de la de` Github`
-- `Git` es el programa que permite hacer el CV y ??se instalará
-- `Github` es el entorno web que adoptamos para hacerlo y hay que darse de alta.
-- Como probablemente utilizaremos Rstudio también el configuraremos
+- Conviene diferenciar la configuración de `git` de la de` github`
+    + `git` es el programa que permite hacer el CV y debe se instalarse en el equipo.
+    + `github` es el entorno web que adoptamos para hacerlo y hay que darse de alta.
+- Como probablemente utilizaremos `Rstudio` también lo configuraremos
+    + En primer lugar instalaremos `git` en el ordenador.
+    + A continuación indicaremos su localización mediante la opción: 
+        `Tools-->Global Options-->git/SVN`
 
-Recordemos que:
-- Para * acceder * a un repositorio y descargar su material no hay nada especial.
-- Sí que hay si se quiere poner código (u otros materiales) bajo control de versiones.
+<!-- - Recordemos: -->
+<!--     + Para *acceder* a un repositorio y descargar su material no hay que hacer nada especial. -->
+<!--     + Sí lo que se desea es poner código (u otros materiales) bajo control de versiones si que es preciso seguir determinados pasos. -->
 
 ---
 
-# Creación de una cuenta en Github
+# Creación de una cuenta en github
 
 - Ir a [https://github.com/](https://github.com/) y crear un usuario
-    + [Https://github.com/miriammota](https://github.com/miriammota)
-    + [Https://github.com/hadley](https://github.com/hadley)
-    + [Https://github.com/alexGRBio](https://github.com/alexGRBio)
-- Es gratuito si queremos emplear repositorios públicos
-- Podemos obtener espacio para repositorios privados
-    + A [Github] (https://github.com) con licencia acdèmica o pagando una cuota pequeña.
-    + Gratis a otros sitios como [Gitlab] (https://gitlab.com)
-- Podemos crear Organitzacons que agrupen usuarios
-    + [Https://github.com/GRBio](https://github.com/GRBio)
-    + [Https://github.com/uebueb](https://github.com/uebueb)
-   
----
-
-# Instalación de Git
-
-- Podemos ver cómo instalar Git en el enlace:
-[Http://r-pkgs.had.co.nz/git.html#git-init](http://r-pkgs.had.co.nz/git.html#git-init)
-
-- Básicamente hay que hacer:
-    + Descargar el programa
-    + Instalarlo
-    + Configurar el nombre de usuario: desde consola escribiremos:
-    
-      `Git config --global user.email alex @ grbio.eu`
-      
-      `Git config --global user.name alexGRBio`
+    + [https://github.com/hadley](https://github.com/hadley)
+    + [https://github.com/alexGRBio](https://github.com/alexGRBio)
+- Es gratuito y podemos crear repositorios públicos o privados.
+- Podemos crear _Organizaciones_ que permite dar acceso a grupos de usuarios a ciertos repositorios.
+  
 
 ---
 
-# Configuración de Rstudio para trabajar con Git / Github
+# Instalación de git
 
-[Http://www.r-bloggers.com/rstudio-and-github/](http://www.r-bloggers.com/rstudio-and-github/)
+- Básicamente lo hay que hacer es:
+    + Descargar el programa
+    + Instalarlo
+    + Configurar el nombre de usuario. 
+
+- Por ejemplo para crear un usuario llamado `nombreUsuario` cuyo correo electrónico será `correo@usuario` escribiremos:
+
+    `git config --global user.email correo@usuario`
+    `git config --global user.name mombreUsuario`
+
+- Podemos ver un ejemplo de cómo instalar git en el enlace:
+[http://r-pkgs.had.co.nz/git.html#git-init](http://r-pkgs.had.co.nz/git.html#git-init)
+
+
+---
+
+# Configuración de Rstudio para trabajar con `git/github`
 
 - Desde _Tools -> Version Control_ selecionar _Git_
-- Desde _RStudio, Tools -> Global Options_, seleccionamos la pestaña _Git // SVN_
-    + Hay que asegurarse de que el _path_ hacia el ejecutable es correcto, especialmente en Windows donde es del tipo 'C: / Program Files (x86) / Git / bin / git.exe`.
-- Elegimos _Create RSA Key_
-- Cerramos la ventana, pulsamos _View público key_ y copiamos la clave pública que se nos muestra.
-- _ (Si aún no tuviéramos una cuenta de GitHub ahora es el momento de crearlo (_
-    - Abrimos _account settings_,
-    - pulsamos la pestaña de claves SSH
-    - Pulsamos _Add SSH key_
-    - Pegamos la clave pública que hemos creado desde Rstudio.
-- Debemos identificarnos a Git (que está a nuestro ordenador !, no es GitHub)
-    - A RStudio, pulsamos _Tools -> Shell_
-    - Se abre una consola donde escribiremos:
+- Desde _RStudio, Tools -> Global Options_, seleccionamos la pestaña _Git / SVN_
+    + Hay que asegurarse de que el _path_ hacia el ejecutable es correcto, especialmente en Windows donde será algo parecido a: `C:\Program Files (x86)\git\bin\git.exe`.
+    
+- Opcionalmente, podemos crear una clave SSH para que, desde nuestro ordenador, no haga falta introducir el nombre de usuario y la contraseña cada vez que queramos acceder a github (ver diapositiva siguiente)
 
-      `Git config --global user.email alex @ grbio.eu`
-      
-      `Git config --global user.name alexGRBio`
+- Una buena fuente de información la encontraremos en los tutoriales de Rstudio:
+
+[Using Version Control with Rstudio](https://support.rstudio.com/hc/en-us/articles/200532077?version=1.2.1335&mode=desktop)
+    <!-- + [http://www.r-bloggers.com/rstudio-and-github/](http://www.r-bloggers.com/rstudio-and-github/) -->
+
+
+# Configuración adicional (opcional)
+
+- Desde _RStudio, Tools -> Global Options_, seleccionamos la pestaña _Git/SVN_
+
+    + Escogemos _Create RSA Key_. Se abrirá una ventana que muestra la clave creada.
+    + Cerramos la ventana, pulsamos _View públic key_ y copiamos (Ctrl+C) la clave pública que se nos muestra.
+
+- *Para el paso siguiente tenemos que haber creado anteriormente una cuenta en github*
+
+    + Accedemos a github y nos identificamos con nuestro usuario y contraseña
+    + Abrimos _account settings_ y seleccionamos la pestaña de claves SSH/GPG
+    + Pulsamos _Add SSH key_ y pegamos la clave pública que hemos creado desde Rstudio.
+
+- Finalmente debemos asociar la versión de git de nuestro ordenador com GitHub
+
+    + En RStudio, pulsamos _Tools -> Shell_. Se abrirá una consola donde escribiremos:
+    `git config --global user.email correo@usuario`
+    `git config --global user.name nombreUsuario`
 
 ---
 
@@ -154,26 +169,25 @@ Recordemos que:
 - Como antes escogemos _new project_ y después _new Directory_
 - Damos nombre al proyecto y marcamos: _Create a git repository_
 - Desde RStudio, creamos un nuevo script ( `test.R`) que añadiremos al repositorio
-    + Una vez grabado este nuevo script ( `test.R`), aparecerá en la pestaña Git tab del panel` Environment / history`.
-    + Seleccionar el (los) archivos que quieras añadir al repositorio y pulsa `Commit` entrando una breve descripción donde dice` Commit message`.
-        + Hemos enviado ( "Committed") la versión actual del archivo a tu repositorio local, tu ordenador o servidor.
-        + Ahora quisiéramos subir ( "push") el resultado del envío ( "commit") a GitHub, de forma que
-            + Tenemos una copia de seguridad
-            + Será accesible a los colaboradores
+    + Una vez grabado este nuevo script ( `test.R`), aparecerá en la pestaña __Git tab__ del panel __Environment / history__.
+    + Seleccionamos el (los) archivos que queremos añadir al repositorio y pulsamos `Commit` entrando una breve descripción donde dice` Commit message`.
+    + Esta acción no cambia nada en el repositorio, simplemente informa ("Committs") de la versión actual del archivo al repositorio local, o al servidor.
+    + Tras el `commit` tenemos que actualizar ("push") los cambios en el repositorio de `GitHub`
+        - Esto se puede hacer simplemente pulsando el botón "push" lo que nos proporcionará (i) una copia de seguridad que (ii) será accesible a los que accedan al repositorio.        
 
 ---
 
-# Caso 2: Convertir un directorio local en un repositorio de Github
+# Caso 2: Convertir un directorio local en un repositorio de github
 
 - Si queremos convertir un repositorio local en un remoto debemos hacerlo mediante linea de comandos.
 - Una vez hecho esto  podremos "empujar" el repositorio en GitHub ...
-    + Sin haber creado un directorio remoto que se corresponda
-    + Habiendo creado previamente un directorio remoto con el que enlazar.
+    + Sin haber creado un directorio remoto que se corresponda
+    + Habiendo creado previamente un directorio remoto con el que enlazar.
 - Una vez creado el directorio a GitHub podremos añadir archivos
 
 # 2.1 Creación del repositorio remoto
 
-- Supongamos que tenemos un directorio local que queremos poner a Github
+- Supongamos que tenemos un directorio local que queremos poner a github
 - En primer lugar el convertiremos en repositorio y haremos un repositorio remoto a su imagen
 
 ```{r eval = FALSE}
@@ -205,17 +219,16 @@ git push -u origin master
 - Si el proceso que hemos seguido anteriormente para crear el paquete del hubiéramos hecho dentro de un proyecto de bajo control de versiones podríamos haberlo subido directamente a GitHub
 - Desde allí todo el que quiera se lo puede instalar o clonar.
 
-# Caso 3: Clonar un repositorio de Github
+# Caso 3: Clonar un repositorio de github
 
 - Si queremos descargarnos un repositorio podemos hacerlo
-    + A GitHub nos ponemos al repositorio
-    + Seleccionamos la opción `Clone / download '
-    + En nuestro ordenador nos ponemos en la carpeta donde queremos que se ponga el repositorio clonado
-    + Hacemos: `git clone nomRepositori`
-    
+    + Vamos a GitHub y nos situamos en el repositorio
+    + Seleccionamos la opción `Clone/download '
+    + En nuestro ordenador nos ponemos en la carpeta donde queremos que se ponga el repositorio clonado
+    + Hacemos: `git clone nomRepositori`
+    
 - Podemos hacerlo también desde Rstudio
 
 # Referencias y enlaces
 
-- [Seminario impartido por Xavier de Pedro a la UEB el VHIR * Enhance your Team Work with DVCS: Bazaar, Git ... *] (http://ueb.vhir.org/SeminarDVCS)
-- [Seminario impartido por Miriam Mota el VHIR] (http://ueb.vhir.org/2016-02-19+Miriam+Mota+Git-Github)
+- [Using Git within RStudio](https://cfss.uchicago.edu/setup/git-with-rstudio/)

@@ -169,7 +169,7 @@ css: my.css
 - Desde RStudio, creamos un nuevo script ( `test.R`) que añadiremos al repositorio
     + Una vez grabado este nuevo script ( `test.R`), aparecerá en la pestaña __Git tab__ del panel __Environment / history__.
     + Seleccionamos el (los) archivos que queremos añadir al repositorio y pulsamos `Commit` entrando una breve descripción donde dice` Commit message`.
-    + Esta acción no cambia nada en el repositorio, simplemente informa ("Committs") de la versión actual del archivo al repositorio local, o al servidor.
+    + Esta acción no cambia nada en el repositorio, simplemente informa ("Commits") de la versión actual del archivo al repositorio local, o al servidor.
     + Tras el `commit` tenemos que actualizar ("push") los cambios en el repositorio de `GitHub`
         - Esto se puede hacer simplemente pulsando el botón "push" lo que nos proporcionará (i) una copia de seguridad que (ii) será accesible a los que accedan al repositorio.        
 
@@ -220,14 +220,22 @@ git push -u origin master
 # Caso 4: Clonar un repositorio de github
 
 - Si queremos descargarnos un repositorio podemos hacerlo
-    + Vamos a GitHub y nos situamos en el repositorio
+    + Vamos a GitHub y nos situamos en el repositorio que deseamos clonar
     + Seleccionamos la opción `Clone/download', Esto copiará la dirección del repositorio en la memoria.
+- Podemos clonarlo desde la consola o desde Rstudio.
 - Para clonarlo desde la consola:
-    + En nuestro ordenador nos situamos en el directorio donde se desa situar el repositorio clonado
+    + En nuestro ordenador nos situamos en el directorio donde se desea situar el repositorio clonado.
     + Tecleamos: `git clone nomRepositori`
-- Podemos hacerlo también desde Rstudio
+    
+---
+
+# Caso 4.2. Clonar repositorio en Rstudio
+
+- La forma más sencilla de clonar un repositorio es creando un  proyecto bajo control de versión desde Rstudio;
     + Seleccionar __File / New Project... / Version Control / Git__
-    + Donde se indica "Repository URL" pegar la URL del repositorio
+    + Donde se indica "Repository URL" pegar la URL del repositorio.
+    + En el campo "Create project as subdirectory of.." seleccionamos el directorio en el que desea crear el proyecto
+    + Pulsamos "Create Project"
 
 # Referencias y enlaces
 

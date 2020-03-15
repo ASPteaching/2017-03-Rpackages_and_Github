@@ -162,7 +162,45 @@ css: my.css
 
 ---
 
-# Caso 1: Creación de proyectos con control de versión
+# Descarga o Clonación de repositorios
+
+- github se ha convertido en una de las fuentes principales de software libre en internet. Podemos encontrar de todo, cursos, manuales, herramientas organizados como repositorios de github.
+- ¿Que hay que hacer, que hay que saber hacer para tener acceso a esta información?
+    + Obviamente lo primero es la url de cada repositorio
+    + Lo segundo es decidir si se quiere descargar o clonar.
+- Si sólo vamos a acceder a un repositorio una vez en la vida probablemente bastará con que lo descarguemos a nuestro ordenador.
+- Si queremos poder seguir el desarrollo del proyecto que representa el repositorio y queremos poder mantenernos al día sin necesitar hacer descargas completas cada vez que sospechemos que ha habido cambios clonaremos  el repositorio.
+    + La clonación consiste en usar el programa "git" instalado en nuestro ordenador para descargar el contenido del repositorio todo su historial de versiones.
+    + Una vez se ha clonado el repositorio se puede solicitar actualizaciones en cualquier momento con la instrucción "pull"
+
+---
+
+# Caso 1.1: Descargar o Clonar repositorios de github desde la consola
+
+Si queremos clonar un repositorio podemos hacerlo facilmente
+
+- Accedemos a la cuenta de github que contiene el repositorio que queremos clonar, por ejemplo [https://github.com/ASPteaching](https://github.com/ASPteaching)
+-  Entramos en el repositorio con doble clic, por ejemplo _Omics_Data_Analysis-Case_Study_1-Microarrays_
+- Seleccionamos la opción `Clone/download', Esto __copiará la dirección del repositorio en la memoria__.
+- Para cllonar el repositorio desde la consola: ...
+    + En nuestro ordenador nos situamos en el directorio donde se desea situar el repositorio clonado.
+    + Tecleamos: `git clone` y el nombre del repositorio, que en nuestro caso seria ` _Omics_Data_Analysis-Case_Study_1-Microarrays`
+    
+---
+
+# Caso 1.2. Clonar repositorio en Rstudio
+
+- Para clonar un repositorio desde Rstudio podemos crear un  proyecto bajo control de versión;
+    + Seleccionar __File / New Project... / Version Control / Git__
+    + Donde se indica "Repository URL" pegar la URL del repositorio. Por ejemplo: "https://github.com/ASPteaching/Omics_Data_Analysis-Case_Study_1-Microarrays"
+    + En el campo "Create project as subdirectory of.." seleccionamos el directorio en el que desea crear el proyecto
+    + Pulsamos "Create Project". Esta acción descargará el contenido del repositorio al directorio indicado y tendremos una copia completa bajo control de versiones que podremos ir actualizando con la opción git/pull.
+
+- Obsérvese que la URL del repositorio se puede obtener tanto de la barra de direcciones del navegador como pulsando el boton "clone" this repository
+
+---
+
+# Caso 2: Creación de proyectos con control de versión
 
 - Como antes escogemos _new project_ y después _new Directory_
 - Damos nombre al proyecto y marcamos: _Create a git repository_
@@ -175,7 +213,7 @@ css: my.css
 
 ---
 
-# Caso 2: Convertir un directorio local en un repositorio de github
+# Caso 3: Convertir un directorio local en un repositorio de github
 
 - Si queremos convertir un repositorio local en un remoto debemos hacerlo mediante linea de comandos.
 - Una vez hecho esto  podremos "empujar" el repositorio en GitHub ...
@@ -183,7 +221,7 @@ css: my.css
     + Habiendo creado previamente un directorio remoto con el que enlazar.
 - Una vez creado el directorio a GitHub podremos añadir archivos
 
-# 2.1 Creación del repositorio remoto
+# 3.1 Creación del repositorio remoto
 
 - Supongamos que tenemos un directorio local que queremos poner a github
 - En primer lugar el convertiremos en repositorio y haremos un repositorio remoto a su imagen
@@ -198,7 +236,7 @@ git push -u origin master
 ```
 ---
 
-# 2.2 Añadiendo archivos del repositorio local al remoto
+# 3.2 Añadiendo archivos del repositorio local al remoto
 
 - Con el repositorio remoto creado podemos añadir archivos
 
@@ -212,31 +250,16 @@ git push -u origin master
 
 ---
 
-# Caso 3: Creación de un paquete bajo control de versiones
+# Caso 4: Creación de un paquete bajo control de versiones
 
 - Si el proceso que hemos seguido anteriormente para crear el paquete del hubiéramos hecho dentro de un proyecto de bajo control de versiones podríamos haberlo subido directamente a GitHub
 - Desde allí todo el que quiera se lo puede instalar o clonar.
 
-# Caso 4: Clonar un repositorio de github
-
-- Si queremos descargarnos un repositorio podemos hacerlo
-    + Vamos a GitHub y nos situamos en el repositorio que deseamos clonar
-    + Seleccionamos la opción `Clone/download', Esto copiará la dirección del repositorio en la memoria.
-- Podemos clonarlo desde la consola o desde Rstudio.
-- Para clonarlo desde la consola:
-    + En nuestro ordenador nos situamos en el directorio donde se desea situar el repositorio clonado.
-    + Tecleamos: `git clone nomRepositori`
-    
----
-
-# Caso 4.2. Clonar repositorio en Rstudio
-
-- La forma más sencilla de clonar un repositorio es creando un  proyecto bajo control de versión desde Rstudio;
-    + Seleccionar __File / New Project... / Version Control / Git__
-    + Donde se indica "Repository URL" pegar la URL del repositorio.
-    + En el campo "Create project as subdirectory of.." seleccionamos el directorio en el que desea crear el proyecto
-    + Pulsamos "Create Project"
 
 # Referencias y enlaces
 
+Internet está plagado de referencias buenas y malas sobre el uso de git y github, con o sin Rstudio
+
 - [Using Git within RStudio](https://cfss.uchicago.edu/setup/git-with-rstudio/)
+- [El control de versiones con Git](https://swcarpentry.github.io/git-novice-es/)
+

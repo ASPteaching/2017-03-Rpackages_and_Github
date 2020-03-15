@@ -606,6 +606,49 @@ Alex Sanchez (<a href="mailto:asanchez@ub.edu" class="email">asanchez@ub.edu</a>
 </ul></li>
 </ul>
 </div>
+<div id="descarga-o-clonación-de-repositorios" class="slide section level1">
+<h1>Descarga o Clonación de repositorios</h1>
+<ul>
+<li>github se ha convertido en una de las fuentes principales de software libre en internet. Podemos encontrar de todo, cursos, manuales, herramientas organizados como repositorios de github.</li>
+<li>¿Que hay que hacer, que hay que saber hacer para tener acceso a esta información?
+<ul>
+<li>Obviamente lo primero es la url de cada repositorio</li>
+<li>Lo segundo es decidir si se quiere descargar o clonar.</li>
+</ul></li>
+<li>Si sólo vamos a acceder a un repositorio una vez en la vida probablemente bastará con que lo descarguemos a nuestro ordenador.</li>
+<li>Si queremos poder seguir el desarrollo del proyecto que representa el repositorio y queremos poder mantenernos al día sin necesitar hacer descargas completas cada vez que sospechemos que ha habido cambios clonaremos el repositorio.
+<ul>
+<li>La clonación consiste en usar el programa “git” instalado en nuestro ordenador para descargar el contenido del repositorio todo su historial de versiones.</li>
+<li>Una vez se ha clonado el repositorio se puede solicitar actualizaciones en cualquier momento con la instrucción “pull”</li>
+</ul></li>
+</ul>
+</div>
+<div id="caso-0-clonar-un-repositorio-de-github" class="slide section level1">
+<h1>Caso 0: Clonar un repositorio de github</h1>
+<pre><code>Si queremos descargarnos un repositorio podemos hacerlo
++ Vamos a GitHub y nos situamos en el repositorio que deseamos clonar
++ Seleccionamos la opción `Clone/download', Esto copiará la dirección del repositorio en la memoria.</code></pre>
+<ul>
+<li>Podemos clonarlo desde la consola o desde Rstudio.</li>
+<li>Para clonarlo desde la consola:
+<ul>
+<li>En nuestro ordenador nos situamos en el directorio donde se desea situar el repositorio clonado.</li>
+<li>Tecleamos: <code>git clone nomRepositori</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="caso-4.2.-clonar-repositorio-en-rstudio" class="slide section level1">
+<h1>Caso 4.2. Clonar repositorio en Rstudio</h1>
+<ul>
+<li>La forma más sencilla de clonar un repositorio es creando un proyecto bajo control de versión desde Rstudio;
+<ul>
+<li>Seleccionar <strong>File / New Project… / Version Control / Git</strong></li>
+<li>Donde se indica “Repository URL” pegar la URL del repositorio.</li>
+<li>En el campo “Create project as subdirectory of..” seleccionamos el directorio en el que desea crear el proyecto</li>
+<li>Pulsamos “Create Project”</li>
+</ul></li>
+</ul>
+</div>
 <div id="caso-1-creación-de-proyectos-con-control-de-versión" class="slide section level1">
 <h1>Caso 1: Creación de proyectos con control de versión</h1>
 <ul>
@@ -641,21 +684,21 @@ Alex Sanchez (<a href="mailto:asanchez@ub.edu" class="email">asanchez@ub.edu</a>
 <li>Supongamos que tenemos un directorio local que queremos poner a github</li>
 <li>En primer lugar el convertiremos en repositorio y haremos un repositorio remoto a su imagen</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">echo <span class="st">&quot;# 2017-02-09-MyFebruary_Talk&quot;</span> <span class="op">&gt;</span><span class="er">&gt;</span><span class="st"> </span>README.md</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">git init</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">git add README.md</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">git commit <span class="op">-</span>m <span class="st">&quot;first commit&quot;</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">git remote add origin https<span class="op">:</span><span class="er">//</span>github.com<span class="op">/</span>alexsanchezpla<span class="op">/-</span>MyFebruary_Talk.git</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">git push <span class="op">-</span>u origin master</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">echo <span class="st">&quot;# 2017-02-09-MyFebruary_Talk&quot;</span> <span class="op">&gt;</span><span class="er">&gt;</span><span class="st"> </span>README.md</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">git init</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">git add README.md</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">git commit <span class="op">-</span>m <span class="st">&quot;first commit&quot;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">git remote add origin https<span class="op">:</span><span class="er">//</span>github.com<span class="op">/</span>alexsanchezpla<span class="op">/-</span>MyFebruary_Talk.git</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">git push <span class="op">-</span>u origin master</a></code></pre></div>
 </div>
 <div id="añadiendo-archivos-del-repositorio-local-al-remoto" class="slide section level1">
 <h1>2.2 Añadiendo archivos del repositorio local al remoto</h1>
 <ul>
 <li>Con el repositorio remoto creado podemos añadir archivos</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">git add <span class="op">-</span>A</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">git commit <span class="op">-</span>m <span class="st">&quot;Nos archivos añadidos&quot;</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">git push <span class="op">-</span>u origin master</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">git add <span class="op">-</span>A</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">git commit <span class="op">-</span>m <span class="st">&quot;Nos archivos añadidos&quot;</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">git push <span class="op">-</span>u origin master</a></code></pre></div>
 <ul>
 <li>Cada vez que hacemos cambios y los queramos actualizar podemos repetir estas instrucciones.</li>
 </ul>
@@ -665,34 +708,6 @@ Alex Sanchez (<a href="mailto:asanchez@ub.edu" class="email">asanchez@ub.edu</a>
 <ul>
 <li>Si el proceso que hemos seguido anteriormente para crear el paquete del hubiéramos hecho dentro de un proyecto de bajo control de versiones podríamos haberlo subido directamente a GitHub</li>
 <li>Desde allí todo el que quiera se lo puede instalar o clonar.</li>
-</ul>
-</div>
-<div id="caso-4-clonar-un-repositorio-de-github" class="slide section level1">
-<h1>Caso 4: Clonar un repositorio de github</h1>
-<ul>
-<li>Si queremos descargarnos un repositorio podemos hacerlo
-<ul>
-<li>Vamos a GitHub y nos situamos en el repositorio que deseamos clonar</li>
-<li>Seleccionamos la opción `Clone/download’, Esto copiará la dirección del repositorio en la memoria.</li>
-</ul></li>
-<li>Podemos clonarlo desde la consola o desde Rstudio.</li>
-<li>Para clonarlo desde la consola:
-<ul>
-<li>En nuestro ordenador nos situamos en el directorio donde se desea situar el repositorio clonado.</li>
-<li>Tecleamos: <code>git clone nomRepositori</code></li>
-</ul></li>
-</ul>
-</div>
-<div id="caso-4.2.-clonar-repositorio-en-rstudio" class="slide section level1">
-<h1>Caso 4.2. Clonar repositorio en Rstudio</h1>
-<ul>
-<li>La forma más sencilla de clonar un repositorio es creando un proyecto bajo control de versión desde Rstudio;
-<ul>
-<li>Seleccionar <strong>File / New Project… / Version Control / Git</strong></li>
-<li>Donde se indica “Repository URL” pegar la URL del repositorio.</li>
-<li>En el campo “Create project as subdirectory of..” seleccionamos el directorio en el que desea crear el proyecto</li>
-<li>Pulsamos “Create Project”</li>
-</ul></li>
 </ul>
 </div>
 <div id="referencias-y-enlaces" class="slide section level1">
